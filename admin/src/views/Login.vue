@@ -33,14 +33,11 @@ export default {
     async login () {
       const res = await this.$http.post('/login', this.model)
       if (res.data.status === 0) {
-        // localStorage.setItem("token", res.data.token);
         localStorage.setItem('admin_name', res.data.username)
-
         this.$message({
           type: 'success',
           message: '登录成功'
         })
-
         this.$router.push('/')
       }
     }
