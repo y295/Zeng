@@ -48,56 +48,56 @@
 </template>
 
 <style>
-  .MusicBook_wrap{
-    padding: 0;
-    margin: 0;
-    border: 0;
-    overflow: hidden;
-    clear: both;
-    background-color: #fafafa;
-    height: 100%;
-}
-  .title{
-  clear: both;
-  font-size: 18px;
-  color: #2a2a2a;
-  margin-left: 10px;
-}
- .tags{
-    margin-top: 10px;
- }
- .tags ul{
-  list-style: none;
-  display: block;
+.MusicBook_wrap{
+  padding: 0;
+  margin: 0;
+  border: 0;
   overflow: hidden;
   clear: both;
- }
- .tags ul li{
-    display: block;
-    width: 60px;
-    float: left;
-    margin-left: 10px;
- }
-  .tags ul li a{
-    display: block;
-    text-align: center;
-  }
-  .music_list li{
-    float: left;
-    list-style: none;
-    margin-right: 10px;
+  background-color: #fafafa;
+  height: 100%;
 }
- .tag-current {
-    background-color: white;
-
-  }
-  .block{
-    text-align: center;
-    margin: 15px 0;
-  }
-  .el-table{
+.title{
+ clear: both;
+ font-size: 18px;
+ color: #2a2a2a;
+ margin-left: 10px;
+}
+.tags{
+ margin-top: 10px;
+}
+.tags ul{
+ list-style: none;
+ display: block;
+ overflow: hidden;
+ clear: both;
+}
+.tags ul li{
+  display: block;
+  width: 60px;
+  float: left;
   margin-left: 10px;
-  margin-right: 10px
+}
+.tags ul li a{
+  display: block;
+  text-align: center;
+}
+.music_list li{
+  float: left;
+  list-style: none;
+  margin-right: 10px;
+}
+.tag-current {
+  background-color: white;
+
+}
+.block{
+  text-align: center;
+  margin: 15px 0;
+}
+.el-table{
+margin-left: 10px;
+margin-right: 10px
 }
 </style>
 
