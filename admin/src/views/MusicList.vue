@@ -78,21 +78,21 @@ export default {
 </script>
 
 <style>
-  .search_warp{
-    height:40px;
-    width: 450px;
-  }
- .el-input {
-    width: 300px;
-  }
-  .input-with-select .el-input-group__prepend {
-    background-color: #fff;
+.search_warp{
+  height:40px;
+  width: 450px;
+}
+.el-input {
+  width: 300px;
+}
+.input-with-select .el-input-group__prepend {
+  background-color: #fff;
 
-  }
-  .prev {
-    display: inline-block;
-    margin-left: 50px;
-    color: #878d99;
-    cursor: pointer;
-  }
+}
+.prev {
+  display: inline-block;
+  margin-left: 50px;
+  color: #878d99;
+  cursor: pointer;
+}
 </style>
