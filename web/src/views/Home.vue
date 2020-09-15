@@ -1,126 +1,99 @@
 <template>
   <div class="all_wrap">
     <div class="header_wrap">
-        <div class="header">
-            <div class="logo">
-                <img src="../assets/logo.png" height="50" width="200" />
-            </div>
-            <div class="mune_wrap">
-                <el-menu class="el-menu-demo" mode="horizontal" router :default-active="$route.path">
-                    <el-menu-item index="/main">首页</el-menu-item>
-                    <el-menu-item index="/musics/musicbook">曲库</el-menu-item>
-                    <el-menu-item index="/musics/singerbook">歌手</el-menu-item>
-                    <el-menu-item index="/musics/ranking">排行榜</el-menu-item>
-                </el-menu>
-            </div>
-            <div class="login_wrap">
-                <el-dropdown>
-                    <span class="user">{{username||"未登录"}}</span>
-                    <el-dropdown-menu slot="dropdown">
-                        <el-dropdown-item v-if="!username">
-                            <a @click="login">登录</a>
-                        </el-dropdown-item>
-                        <el-dropdown-item v-if="!username">
-                            <a @click="register">注册</a>
-                        </el-dropdown-item>
-                        <el-dropdown-item v-else>
-                            <a @click="logout">退出</a>
-                        </el-dropdown-item>
-                    </el-dropdown-menu>
-                </el-dropdown>
-            </div>
-            <div class="search_warp">
-                <el-input placeholder="音乐/歌手" v-model="input" class="input-with-select">
-                    <el-button slot="append" icon="el-icon-search" @click="search"></el-button>
-                </el-input>
-            </div>
+      <div class="header">
+        <div class="logo">
+          <img src="../assets/logo.png" height="50" width="200">
         </div>
+        <div class= "mune_wrap">
+          <el-menu class="el-menu-demo" mode="horizontal"  router :default-active="$route.path">
+            <el-menu-item index="/main">首页</el-menu-item>
+            <el-menu-item index="/musics/musicbook">曲库</el-menu-item>
+            <el-menu-item index="/musics/singerbook">歌手</el-menu-item>
+            <el-menu-item index="/musics/ranking">排行榜</el-menu-item>
+          </el-menu>
+        </div>
+        <div class="login_wrap">
+          <el-dropdown>
+            <span class="user">{{username||"未登录"}}</span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item v-if="!username">
+                <a @click="login">登录</a>
+              </el-dropdown-item>
+              <el-dropdown-item v-if="!username">
+                <a @click="register">注册</a>
+              </el-dropdown-item>
+              <el-dropdown-item v-else>
+                <a @click="logout">退出</a>
+              </el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </div>
+        <div class= "search_warp">
+          <el-input placeholder="音乐/歌手" v-model="input" class="input-with-select">
+            <el-button slot="append" icon="el-icon-search" @click="search" ></el-button>
+          </el-input>
+        </div>
+      </div>
     </div>
     <div class="container2_wrap">
-        <div class="container2">
-            <el-container>
-                <el-aside width="280px">
-                    <div id="music">
-                        <div id="music_container">
-                            <div class="collection" v-if="music_name">
-                                <span v-if="isCollected">已收藏</span>
-                                <span @click="collection(username, music_id)" v-else>收藏</span>
-                            </div>
-                            <div>
-                                <h3 id="musicName">{{music_name}}</h3>
-                            </div>
-                            <img src="../../static/img/yuan.png" id="musicImg" class="rotate" :style="{'animation-play-state': controlRotate}" />
-                            <audio :src="music_address" controls id="audio" :autoplay="autoplay" @play="rotate" @pause="noRotate" @ended="next" ref="audio"></audio>
-                            <div class="btn">
-                                <button id="play" @click="play">play</button>
-                                <button id="pause" @click="pause">pause</button>
-                                <button id="prev" @click="prev">prev</button>
-                                <button id="next" @click="next">next</button>
-                            </div>
-                        </div>
-                    </div>
-                </el-aside>
-                <el-main>
-                    <router-view :key="$route.path" @func="getInput"></router-view>
-                </el-main>
-                <el-aside width="250px" style="background-color: #f3f3f3">
-                    <div class="music_collection" v-model="modelCollection">
-                        <div class="title">
-                            <span>
-                                <b>收藏列表</b>
-                            </span>
-                        </div>
-                        <ul>
-                            <li v-for="item in modelCollection" class="music_li">
-                                <span class="music_name">
-                                    <a @click="common.setNowMusic(item)">{{item.music_name}}</a>
-                                </span>
-                                <span class="del" @click="del(username, item._id)">
-                                    <a>删除</a>
-                                </span>
-                                <span v-for="item in item.singers_list" class="singers_list">
-                                    <a class="singer_name" @click="common.singer(item._id)">{{item.singer_name}}</a>
-                                </span>
-                            </li>
-                        </ul>
-                    </div>
-                </el-aside>
-            </el-container>
-        </div>
+      <div class="container2">
+        <el-container>
+          <el-aside width="280px">
+            <div id="music">
+              <div id="music_container">
+                <div class="collection" v-if="music_name">
+                  <span v-if="isCollected">已收藏</span>
+                  <span @click="collection(username, music_id)" v-else>收藏</span>
+                </div>
+                <div><h3 id="musicName">{{music_name}}</h3></div>
+                <img src="../../static/img/yuan.png" id="musicImg" class="rotate" :style="{'animation-play-state': controlRotate}">
+                <audio :src="music_address" controls id="audio" :autoplay="autoplay"  @play="rotate" @pause="noRotate" @ended="next" ref="audio"></audio>
+                <div class="btn">
+                  <button id="play" @click="play">play</button>
+                  <button id="pause" @click="pause">pause</button>
+                  <button id="prev" @click="prev">prev</button>
+                  <button id="next" @click="next">next</button>
+                </div>
+              </div>
+            </div>
+          </el-aside>
+          <el-main>
+            <router-view :key="$route.path" @func="getInput"></router-view>
+          </el-main>
+          <el-aside width="250px" style="background-color: #f3f3f3">
+            <div class="music_collection" v-model="modelCollection">
+              <div class="title"><span><b>收藏列表</b></span></div>
+              <ul>
+                <li v-for="item in modelCollection" class="music_li">
+                  <span class="music_name" ><a @click="common.setNowMusic(item)">{{item.music_name}}</a>
+                  </span>
+                  <span class="del" @click="del(username, item._id)"><a >删除</a>
+                  </span>
+                  <span v-for="item in item.singers_list" class="singers_list"> <a class="singer_name" @click="common.singer(item._id)">{{item.singer_name}}</a>
+                  </span>
+                </li>
+             </ul>
+            </div>
+          </el-aside>
+        </el-container>
+      </div>
     </div>
     <div class="footer_wrap">
-        <div class="footer">
-            <div class="link">
-                <div class="title">
-                    <span>
-                        <b>友情链接</b>
-                    </span>
-                </div>
-                <ul>
-                    <li>
-                        <a href="http://www.kugou.com/">酷狗音乐</a>
-                    </li>
-                    <li>
-                        <a href="https://music.163.com/">网易云音乐</a>
-                    </li>
-                    <li>
-                        <a href="http://www.kuwo.cn/">酷我音乐</a>
-                    </li>
-                    <li>
-                        <a href="http://5sing.kugou.com/">5SING</a>
-                    </li>
-                    <li>
-                        <a href="https://www.bilibili.com/">哔哩哔哩</a>
-                    </li>
-                    <li>
-                        <a href="http://www.yue365.com/">365音乐网</a>
-                    </li>
-                    <li>
-                        <a href="https://www.1ting.com/">一听音乐网</a>
-                    </li>
-                </ul>
-            </div>
+      <div class="footer">
+        <div class="link">
+          <div class="title"><span><b>友情链接</b></span></div>
+           <ul>
+             <li><a href="http://www.kugou.com/">酷狗音乐</a></li>
+             <li><a href="https://music.163.com/">网易云音乐</a></li>
+             <li><a href="http://www.kuwo.cn/">酷我音乐</a></li>
+             <li><a href="http://5sing.kugou.com/">5SING</a></li>
+             <li><a href="https://www.bilibili.com/">哔哩哔哩</a></li>
+             <li><a href="http://www.yue365.com/">365音乐网</a></li>
+             <li><a href="https://www.1ting.com/">一听音乐网</a></li>
+           </ul>
         </div>
+      </div>
     </div>
   </div>
 </template>
