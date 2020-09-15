@@ -55,24 +55,24 @@ export default {
 </script>
 
 <style>
- .search_warp{
-    height:40px;
-    width: 450px;
+.search_warp{
+  height:40px;
+  width: 450px;
 
-    padding: 0;
-    margin: 0;
-  }
- .el-input {
-    width: 300px;
-  }
-  .input-with-select .el-input-group__prepend {
-    background-color: #fff;
-  }
-  .prev {
-    height: 40px;
-    display: inline-block;
-    margin-left: 50px;
-    color: #878d99;
-    cursor: pointer;
-  }
+  padding: 0;
+  margin: 0;
+}
+.el-input {
+  width: 300px;
+}
+.input-with-select .el-input-group__prepend {
+  background-color: #fff;
+}
+.prev {
+  height: 40px;
+  display: inline-block;
+  margin-left: 50px;
+  color: #878d99;
+  cursor: pointer;
+}
 </style>
