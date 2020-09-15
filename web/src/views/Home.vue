@@ -99,127 +99,123 @@
 </template>
 
 <style>
-  *{
-    padding: 0;
-    margin: 0;
+*{
+  padding: 0;
+  margin: 0;
+}
+@keyframes rotatae{
+  0%{
+    transform:rotate(0deg);
   }
-  @keyframes rotatae{
-     0%{
-       transform:rotate(0deg);
-     }
-     100%{
-       transform:rotate(360deg);
-      }
- }
-  body{
-
-    min-width: 1120px;
-    background-color: #e9e3d3;
-
+  100%{
+    transform:rotate(360deg);
   }
-  .all_wrap{
-    width: 100%;
-    min-width: 1120px;
-    clear: both;
-    display: hidden;
-  }
-  .header_wrap{
-    width: 100%;
-    min-width: 1120px;
-    background-color: white;
-    position: absolute;
-    top: 0;
-  }
-  .container2_wrap{
-    width: 100%;
-    min-width: 1120px;
-    background-color: #e9e3d3;
-    position: absolute;
-    top: 90px;
-  }
-  .footer_wrap{
-    width: 100%;
-    min-width: 1120px;
-    background-color: white;
-    position: absolute;
-    top: 585px;
-  }
-  .header{
-    width: 1120px;
-    height: 60px;
-    margin: 0 auto;
-  }
-  .container2{
-    width: 1120px;
-    margin: 0 auto;
-  }
-  .footer{
-    width: 1120px;
-    height: 60px;
-    margin: 0 auto;
-  }
-  .el-header {
-    background-color: white;
-    color: #333;
-
-  }
-  .el-menu--horizontal>.el-menu-item.is-active{
-    border-bottom: 0px
-  }
-  .el-menu.el-menu--horizontal{
-    border-bottom: 0px
-  }
-  .el-menu--horizontal>.el-menu-item{
-    border-bottom: 0px
-  }
-  .el-aside {
-    background-color: white;
-  }
-  .el-aside:nth-child(1) {
-    margin-right: 20px;
-  }
-  .el-main{
-    padding-top: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    padding-bottom: 0px;
-    margin-right: 20px;
-    background-color: white;
-    font: 13px/1.5 "Microsoft Yahei", Tahoma, Helvetica, Arial, sans-serif;
-  }
-  .el-footer{
-    background-color: white;
-  }
-  .logo{
-    float: left;
-    margin-left: 20px;
-  }
-  .mune_wrap{
-    float: left;
-    margin-left: 1%;
-    margin-right: 3%;
-  }
-  .search_warp{
-    float: left;
-    margin-top: 10px;
-    height:40px;
-  }
- .el-input {
-    width: 300px;
-  }
-  .input-with-select .el-input-group__prepend {
-    background-color: #fff;
-  }
-  .login_wrap{
-    float: right;
-    margin-top: 20px;
-    margin-right: 20px;
-  }
-  .user{
-    cursor: pointer;
-    float: right;
-  }
-
+}
+body{
+  min-width: 1120px;
+  background-color: #e9e3d3;
+}
+.all_wrap{
+  width: 100%;
+  min-width: 1120px;
+  clear: both;
+  display: hidden;
+}
+.header_wrap{
+  width: 100%;
+  min-width: 1120px;
+  background-color: white;
+  position: absolute;
+  top: 0;
+}
+.container2_wrap{
+  width: 100%;
+  min-width: 1120px;
+  background-color: #e9e3d3;
+  position: absolute;
+  top: 90px;
+}
+.footer_wrap{
+  width: 100%;
+  min-width: 1120px;
+  background-color: white;
+  position: absolute;
+  top: 585px;
+}
+.header{
+  width: 1120px;
+  height: 60px;
+  margin: 0 auto;
+}
+.container2{
+  width: 1120px;
+  margin: 0 auto;
+}
+.footer{
+  width: 1120px;
+  height: 60px;
+  margin: 0 auto;
+}
+.el-header {
+  background-color: white;
+  color: #333;
+}
+.el-menu--horizontal>.el-menu-item.is-active{
+  border-bottom: 0px
+}
+.el-menu.el-menu--horizontal{
+  border-bottom: 0px
+}
+.el-menu--horizontal>.el-menu-item{
+  border-bottom: 0px
+}
+.el-aside {
+  background-color: white;
+}
+.el-aside:nth-child(1) {
+  margin-right: 20px;
+}
+.el-main{
+  padding-top: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  margin-right: 20px;
+  background-color: white;
+  font: 13px/1.5 "Microsoft Yahei", Tahoma, Helvetica, Arial, sans-serif;
+}
+.el-footer{
+  background-color: white;
+}
+.logo{
+  float: left;
+  margin-left: 20px;
+}
+.mune_wrap{
+  float: left;
+  margin-left: 1%;
+  margin-right: 3%;
+}
+.search_warp{
+  float: left;
+  margin-top: 10px;
+  height:40px;
+}
+.el-input {
+  width: 300px;
+}
+.input-with-select .el-input-group__prepend {
+  background-color: #fff;
+}
+.login_wrap{
+  float: right;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+.user{
+  cursor: pointer;
+  float: right;
+}
 #music {
   font: 12px/1.5 "Microsoft Yahei",Helvetica,Arial,sans-serif;
   color: #666;
@@ -232,7 +228,6 @@
   padding: 0;
   margin: 0
  }
-
 #music_container {
   position: absolute;
   left: 0;
@@ -286,7 +281,6 @@
   height: 460px;
   overflow-y: scroll;
 }
-
 .title{
   clear: both;
   font-size: 18px;
@@ -295,7 +289,6 @@
 }
 a{
   cursor: pointer;
-
 }
 ul {
   list-style: none;
@@ -309,13 +302,11 @@ ul .music_li{
   margin-right: 10px;
   display: block;
   clear: both;
-
 }
 .music_collection .singers_list{
   display: inline-block;
   float: right;
   color: #929292;
-
 }
 .singer_name{
   margin-right: 5px;
@@ -343,161 +334,159 @@ ul .music_li{
 </style>
 
 <script>
-  export default {
-    data() {
-      return {
-        input: '',
-        username:"",
-        controlRotate: "paused",
-        modelCollection: [],
-        music: {},
-        localMusic:{},
+export default {
+data() {
+  return {
+    input: '',
+    username:"",
+    controlRotate: "paused",
+    modelCollection: [],
+    music: {},
+    localMusic:{},
 
-      }
-    },
-    computed: {
-      nowMusic: {
-        get: function() {
-          this.localMusic = JSON.parse(localStorage.getItem("nowMusic")) || "";
-          return this.$store.getters.getMusic;
-        },
-        set: function(newValue) {
-          this.common.setNowMusic(newValue)
-        }
-      },
-      autoplay() {
-        return this.$store.getters.getAutoplay;
-      },
-      music_name: {
-        get: function() {
-        if(this.nowMusic.music_address||this.localMusic.music_address){
-          return (this.nowMusic.music_address||this.localMusic.music_address).substring(35).replace(".mp3","")
-        }else{
-          return ""
-        }
-      },
-      set: function() {
-
-      }
-      },
-      music_address() {
-        return this.nowMusic.music_address||this.localMusic.music_address||""
-      },
-      music_id(){
-        return this.nowMusic._id||this.localMusic._id||""
-      },
-      isCollected() {
-         let isHave1 = JSON.stringify(this.modelCollection).indexOf(JSON.stringify(this.nowMusic));
-         if(isHave1 != -1){
-          return true
-         }else{
-          let isHave2 = JSON.stringify(this.modelCollection).indexOf(JSON.stringify(this.localMusic));
-          if(isHave2 != -1){
-            return true
-          }else{
-            return false
-           }
-         }
-      }
-    },
-    methods: {
-      login() {
-        this.$router.push("/login");
-      },
-      logout() {
-        this.username = "";
-        localStorage.removeItem("username");
-        location.reload()
-      },
-      register() {
-        this.$router.push("/register");
-      },
-      rotate() {
-        this.controlRotate = "running";
-
-      },
-      noRotate() {
-         this.controlRotate = "paused";
-      },
-      async fetchMyMusics() {
-        if(this.username){
-          const res = await this.$http.get(`/musics/collection/${this.username}`+'?data=' + new Date().getTime());
-          this.modelCollection = res.data;
-        }
-      },
-      async collection(username, id) {
-        if(username){
-          const res = await this.$http.put(`/musics/collection/${username}/${id}`, id);
-         // const res2 = await this.$http.get(`/musics/collection/${this.username}`+'?data=' + new Date().getTime());
-         // this.modelCollection = res2.data;
-          this.fetchMyMusics()
-        }else {
-          this.$router.push("/login");
-        }
-      },
-      async del(username, id) {
-         const res = await this.$http.delete(`/musics/delete/${username}/${id}`, id);
-         this.fetchMyMusics()
-      },
-      play() {
-         let audio = this.$refs.audio
-         if(audio.paused){
-            audio.play();
-         }
-      },
-      pause() {
-        let audio = this.$refs.audio
-         if(audio.played) {
-            audio.pause();
-         }
-      },
-      next() {
-        var num;
-        if(this.nowMusic._id) {
-          let item = this.nowMusic
-          num = this.modelCollection.findIndex(function(x){
-            return x._id == item._id
-          })
-        }else {
-          let item = this.localMusic
-          num = this.modelCollection.findIndex(function(x){
-            return x._id == item._id
-          })
-        }
-        num = (num + 1) % this.modelCollection.length
-        this.nowMusic = this.modelCollection[num]
-      },
-      prev() {
-        var num;
-        if(this.nowMusic._id) {
-          let item = this.nowMusic
-          num = this.modelCollection.findIndex(function(x){
-            return x._id == item._id
-          })
-        }else {
-          let item = this.localMusic
-          num = this.modelCollection.findIndex(function(x){
-            return x._id == item._id
-          })
-        }
-        num = (num + this.modelCollection.length - 1) % this.modelCollection.length
-        this.nowMusic = this.modelCollection[num]
-      },
-      search() {
-        if(this.input){
-          this.$router.push(`/musics/search/${this.input}`)
-        }
-      },
-      getInput(data) {
-        this.input = data
-      }
-    },
-    created() {
-      this.username = localStorage.getItem("username") || "";
+  }
+},
+computed: {
+  nowMusic: {
+    get: function() {
       this.localMusic = JSON.parse(localStorage.getItem("nowMusic")) || "";
-      this.fetchMyMusics()
+      return this.$store.getters.getMusic;
     },
+    set: function(newValue) {
+      this.common.setNowMusic(newValue)
+    }
+  },
+  autoplay() {
+    return this.$store.getters.getAutoplay;
+  },
+  music_name: {
+    get: function() {
+    if(this.nowMusic.music_address||this.localMusic.music_address){
+      return (this.nowMusic.music_address||this.localMusic.music_address).substring(35).replace(".mp3","")
+    }else{
+      return ""
+    }
+  },
+  set: function() {
 
+  }
+  },
+  music_address() {
+    return this.nowMusic.music_address||this.localMusic.music_address||""
+  },
+  music_id(){
+    return this.nowMusic._id||this.localMusic._id||""
+  },
+  isCollected() {
+     let isHave1 = JSON.stringify(this.modelCollection).indexOf(JSON.stringify(this.nowMusic));
+     if(isHave1 != -1){
+      return true
+     }else{
+      let isHave2 = JSON.stringify(this.modelCollection).indexOf(JSON.stringify(this.localMusic));
+      if(isHave2 != -1){
+        return true
+      }else{
+        return false
+       }
+     }
+  }
+},
+methods: {
+  login() {
+    this.$router.push("/login");
+  },
+  logout() {
+    this.username = "";
+    localStorage.removeItem("username");
+    location.reload()
+  },
+  register() {
+    this.$router.push("/register");
+  },
+  rotate() {
+    this.controlRotate = "running";
 
-  };
+  },
+  noRotate() {
+     this.controlRotate = "paused";
+  },
+  async fetchMyMusics() {
+    if(this.username){
+      const res = await this.$http.get(`/musics/collection/${this.username}`+'?data=' + new Date().getTime());
+      this.modelCollection = res.data;
+    }
+  },
+  async collection(username, id) {
+    if(username){
+      const res = await this.$http.put(`/musics/collection/${username}/${id}`, id);
+     // const res2 = await this.$http.get(`/musics/collection/${this.username}`+'?data=' + new Date().getTime());
+     // this.modelCollection = res2.data;
+      this.fetchMyMusics()
+    }else {
+      this.$router.push("/login");
+    }
+  },
+  async del(username, id) {
+     const res = await this.$http.delete(`/musics/delete/${username}/${id}`, id);
+     this.fetchMyMusics()
+  },
+  play() {
+     let audio = this.$refs.audio
+     if(audio.paused){
+        audio.play();
+     }
+  },
+  pause() {
+    let audio = this.$refs.audio
+     if(audio.played) {
+        audio.pause();
+     }
+  },
+  next() {
+    var num;
+    if(this.nowMusic._id) {
+      let item = this.nowMusic
+      num = this.modelCollection.findIndex(function(x){
+        return x._id == item._id
+      })
+    }else {
+      let item = this.localMusic
+      num = this.modelCollection.findIndex(function(x){
+        return x._id == item._id
+      })
+    }
+    num = (num + 1) % this.modelCollection.length
+    this.nowMusic = this.modelCollection[num]
+  },
+  prev() {
+    var num;
+    if(this.nowMusic._id) {
+      let item = this.nowMusic
+      num = this.modelCollection.findIndex(function(x){
+        return x._id == item._id
+      })
+    }else {
+      let item = this.localMusic
+      num = this.modelCollection.findIndex(function(x){
+        return x._id == item._id
+      })
+    }
+    num = (num + this.modelCollection.length - 1) % this.modelCollection.length
+    this.nowMusic = this.modelCollection[num]
+  },
+  search() {
+    if(this.input){
+      this.$router.push(`/musics/search/${this.input}`)
+    }
+  },
+  getInput(data) {
+    this.input = data
+  }
+},
+created() {
+  this.username = localStorage.getItem("username") || "";
+  this.localMusic = JSON.parse(localStorage.getItem("nowMusic")) || "";
+  this.fetchMyMusics()
+},
+};
 </script>
