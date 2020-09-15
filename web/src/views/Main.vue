@@ -100,7 +100,6 @@ ul .music_li{
   display: inline-block;
   float: right;
   color: #929292;
-
 }
 </style>
 
