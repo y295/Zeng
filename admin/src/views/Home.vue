@@ -52,42 +52,40 @@
   color: #333;
   line-height: 60px;
 }
-
 .el-aside {
   color: #333;
 }
-
 .user {
   cursor: pointer;
 }
 </style>
 
 <script>
-  export default {
-    data() {
-      return {
-        input: '',
-        select: '',
-        username: ''
-      }
-    },
-    methods: {
-      logout() {
-        localStorage.removeItem("admin_name");
-        this.$router.push("/login");
-      }
-    },
-    created() {
-      this.username = localStorage.getItem("admin_name") || "";
-      if(!this.username){
-        this.$router.push("/login");
-      }
-    },
-     mounted() {
-      window.onbeforeunload = function (e){
-        this.username = "";
-        localStorage.removeItem("admin_name");
-      }
+export default {
+  data() {
+    return {
+      input: '',
+      select: '',
+      username: ''
     }
-  };
+  },
+  methods: {
+    logout() {
+      localStorage.removeItem("admin_name");
+      this.$router.push("/login");
+    }
+  },
+  created() {
+    this.username = localStorage.getItem("admin_name") || "";
+    if(!this.username){
+      this.$router.push("/login");
+    }
+  },
+   mounted() {
+    window.onbeforeunload = function (e){
+      this.username = "";
+      localStorage.removeItem("admin_name");
+    }
+  }
+};
 </script>
