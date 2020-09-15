@@ -1,41 +1,38 @@
 <template>
   <div class="mian_wrap">
     <div class="new_music">
-    <div class="title"><span><b>最新音乐</b></span></div>
+      <div class="title"><span><b>最新音乐</b></span></div>
       <ul>
-          <li v-for="item in modelNew" class="music_li">
-              <span class="music_name"><a @click="common.setNowMusic(item)">{{item.music_name}}</a>
-              </span>
-              <span v-for="item in item.singers_list" class="singers_list">
-              <a class="singer_name" @click="common.singer(item._id)">{{item.singer_name}}</a>
-              </span>
-          </li>
+        <li v-for="item in modelNew" class="music_li">
+          <span class="music_name"><a @click="common.setNowMusic(item)">{{item.music_name}}</a>
+          </span>
+          <span v-for="item in item.singers_list" class="singers_list"><a class="singer_name" @click="common.singer(item._id)">{{item.singer_name}}</a>
+          </span>
+        </li>
       </ul>
     </div>
     <div class="music_recommend">
       <div class="title"><span><b>音乐推荐</b></span></div>
       <ul>
-          <li v-for="item in modelRecommend" class="music_li">
-              <span class="music_name"><a @click="common.setNowMusic(item)">{{item.music_name}}</a>
-              </span>
-              <span v-for="item in item.singers_list" class="singers_list">
-              <a class="singer_name" @click="common.singer(item._id)">{{item.singer_name}}</a>
-              </span>
-          </li>
+        <li v-for="item in modelRecommend" class="music_li">
+          <span class="music_name"><a @click="common.setNowMusic(item)">{{item.music_name}}</a>
+          </span>
+          <span v-for="item in item.singers_list" class="singers_list"><a class="singer_name" @click="common.singer(item._id)">{{item.singer_name}}</a>
+          </span>
+        </li>
       </ul>
     </div>
     <div class="singer_recommend">
       <div class="title"><span><b>歌手推荐</b></span></div>
       <ul>
-          <li v-for="item in modelSingers" class="singerR_li">
-              <span class="singerR_name"><a @click="common.singer(item._id)">{{item.singer_name}}</a>
-              </span>
-          </li>
+        <li v-for="item in modelSingers" class="singerR_li">
+          <span class="singerR_name"><a @click="common.singer(item._id)">{{item.singer_name}}</a>
+          </span>
+        </li>
       </ul>
     </div>
   </div>
 </template>
-
 
 <style>
 .mian_wrap{
@@ -105,8 +102,6 @@ ul .music_li{
   color: #929292;
 
 }
-
-
 </style>
 
 <script>
