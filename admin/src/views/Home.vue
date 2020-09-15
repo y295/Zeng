@@ -28,7 +28,6 @@
         </el-submenu>
       </el-menu>
     </el-aside>
-
     <el-container>
       <el-header style="text-align: right; font-size: 12px">
         <el-dropdown>
@@ -40,7 +39,6 @@
           </el-dropdown-menu>
         </el-dropdown>
       </el-header>
-
       <el-main>
         <router-view :key="$route.path"></router-view>
       </el-main>
