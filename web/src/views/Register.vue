@@ -35,15 +35,14 @@ export default {
   },
   methods: {
     async register() {
-           const res = await this.$http.post("/register", this.model);
-           if (res.data.status === 0) {
-             this.$router.push("/login");
-             this.$message({
-             type: "success",
-             message: "注册成功"
-           });
-
-        }
+      const res = await this.$http.post("/register", this.model);
+      if (res.data.status === 0) {
+        this.$router.push("/login");
+        this.$message({
+          type: "success",
+          message: "注册成功"
+        });
+      }
     }
   },
 };
