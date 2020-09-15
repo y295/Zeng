@@ -335,158 +335,171 @@ ul .music_li{
 
 <script>
 export default {
-data() {
-  return {
-    input: '',
-    username:"",
-    controlRotate: "paused",
-    modelCollection: [],
-    music: {},
-    localMusic:{},
-
-  }
-},
-computed: {
-  nowMusic: {
-    get: function() {
-      this.localMusic = JSON.parse(localStorage.getItem("nowMusic")) || "";
-      return this.$store.getters.getMusic;
+    data() {
+        return {
+            input: "",
+            username: "",
+            controlRotate: "paused",
+            modelCollection: [],
+            music: {},
+            localMusic: {},
+        };
     },
-    set: function(newValue) {
-      this.common.setNowMusic(newValue)
-    }
-  },
-  autoplay() {
-    return this.$store.getters.getAutoplay;
-  },
-  music_name: {
-    get: function() {
-    if(this.nowMusic.music_address||this.localMusic.music_address){
-      return (this.nowMusic.music_address||this.localMusic.music_address).substring(35).replace(".mp3","")
-    }else{
-      return ""
-    }
-  },
-  set: function() {
-
-  }
-  },
-  music_address() {
-    return this.nowMusic.music_address||this.localMusic.music_address||""
-  },
-  music_id(){
-    return this.nowMusic._id||this.localMusic._id||""
-  },
-  isCollected() {
-     let isHave1 = JSON.stringify(this.modelCollection).indexOf(JSON.stringify(this.nowMusic));
-     if(isHave1 != -1){
-      return true
-     }else{
-      let isHave2 = JSON.stringify(this.modelCollection).indexOf(JSON.stringify(this.localMusic));
-      if(isHave2 != -1){
-        return true
-      }else{
-        return false
-       }
-     }
-  }
-},
-methods: {
-  login() {
-    this.$router.push("/login");
-  },
-  logout() {
-    this.username = "";
-    localStorage.removeItem("username");
-    location.reload()
-  },
-  register() {
-    this.$router.push("/register");
-  },
-  rotate() {
-    this.controlRotate = "running";
-
-  },
-  noRotate() {
-     this.controlRotate = "paused";
-  },
-  async fetchMyMusics() {
-    if(this.username){
-      const res = await this.$http.get(`/musics/collection/${this.username}`+'?data=' + new Date().getTime());
-      this.modelCollection = res.data;
-    }
-  },
-  async collection(username, id) {
-    if(username){
-      const res = await this.$http.put(`/musics/collection/${username}/${id}`, id);
-     // const res2 = await this.$http.get(`/musics/collection/${this.username}`+'?data=' + new Date().getTime());
-     // this.modelCollection = res2.data;
-      this.fetchMyMusics()
-    }else {
-      this.$router.push("/login");
-    }
-  },
-  async del(username, id) {
-     const res = await this.$http.delete(`/musics/delete/${username}/${id}`, id);
-     this.fetchMyMusics()
-  },
-  play() {
-     let audio = this.$refs.audio
-     if(audio.paused){
-        audio.play();
-     }
-  },
-  pause() {
-    let audio = this.$refs.audio
-     if(audio.played) {
-        audio.pause();
-     }
-  },
-  next() {
-    var num;
-    if(this.nowMusic._id) {
-      let item = this.nowMusic
-      num = this.modelCollection.findIndex(function(x){
-        return x._id == item._id
-      })
-    }else {
-      let item = this.localMusic
-      num = this.modelCollection.findIndex(function(x){
-        return x._id == item._id
-      })
-    }
-    num = (num + 1) % this.modelCollection.length
-    this.nowMusic = this.modelCollection[num]
-  },
-  prev() {
-    var num;
-    if(this.nowMusic._id) {
-      let item = this.nowMusic
-      num = this.modelCollection.findIndex(function(x){
-        return x._id == item._id
-      })
-    }else {
-      let item = this.localMusic
-      num = this.modelCollection.findIndex(function(x){
-        return x._id == item._id
-      })
-    }
-    num = (num + this.modelCollection.length - 1) % this.modelCollection.length
-    this.nowMusic = this.modelCollection[num]
-  },
-  search() {
-    if(this.input){
-      this.$router.push(`/musics/search/${this.input}`)
-    }
-  },
-  getInput(data) {
-    this.input = data
-  }
-},
-created() {
-  this.username = localStorage.getItem("username") || "";
-  this.localMusic = JSON.parse(localStorage.getItem("nowMusic")) || "";
-  this.fetchMyMusics()
-},
+    computed: {
+        nowMusic: {
+            get: function () {
+                this.localMusic = JSON.parse(localStorage.getItem("nowMusic")) || "";
+                return this.$store.getters.getMusic;
+            },
+            set: function (newValue) {
+                this.common.setNowMusic(newValue);
+            },
+        },
+        autoplay() {
+            return this.$store.getters.getAutoplay;
+        },
+        music_name: {
+            get: function () {
+                if (this.nowMusic.music_address || this.localMusic.music_address) {
+                    return (this.nowMusic.music_address || this.localMusic.music_address)
+                        .substring(35)
+                        .replace(".mp3", "");
+                } else {
+                    return "";
+                }
+            },
+            set: function () {},
+        },
+        music_address() {
+            return this.nowMusic.music_address || this.localMusic.music_address || "";
+        },
+        music_id() {
+            return this.nowMusic._id || this.localMusic._id || "";
+        },
+        isCollected() {
+            let isHave1 = JSON.stringify(this.modelCollection).indexOf(
+                JSON.stringify(this.nowMusic)
+            );
+            if (isHave1 != -1) {
+                return true;
+            } else {
+                let isHave2 = JSON.stringify(this.modelCollection).indexOf(
+                    JSON.stringify(this.localMusic)
+                );
+                if (isHave2 != -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        },
+    },
+    methods: {
+        login() {
+            this.$router.push("/login");
+        },
+        logout() {
+            this.username = "";
+            localStorage.removeItem("username");
+            location.reload();
+        },
+        register() {
+            this.$router.push("/register");
+        },
+        rotate() {
+            this.controlRotate = "running";
+        },
+        noRotate() {
+            this.controlRotate = "paused";
+        },
+        async fetchMyMusics() {
+            if (this.username) {
+                const res = await this.$http.get(
+                    `/musics/collection/${this.username}` +
+                    "?data=" +
+                    new Date().getTime()
+                );
+                this.modelCollection = res.data;
+            }
+        },
+        async collection(username, id) {
+            if (username) {
+                const res = await this.$http.put(
+                    `/musics/collection/${username}/${id}`,
+                    id
+                );
+                // const res2 = await this.$http.get(`/musics/collection/${this.username}`+'?data=' + new Date().getTime());
+                // this.modelCollection = res2.data;
+                this.fetchMyMusics();
+            } else {
+                this.$router.push("/login");
+            }
+        },
+        async del(username, id) {
+            const res = await this.$http.delete(
+                `/musics/delete/${username}/${id}`,
+                id
+            );
+            this.fetchMyMusics();
+        },
+        play() {
+            let audio = this.$refs.audio;
+            if (audio.paused) {
+                audio.play();
+            }
+        },
+        pause() {
+            let audio = this.$refs.audio;
+            if (audio.played) {
+                audio.pause();
+            }
+        },
+        next() {
+            var num;
+            if (this.nowMusic._id) {
+                let item = this.nowMusic;
+                num = this.modelCollection.findIndex(function (x) {
+                    return x._id == item._id;
+                });
+            } else {
+                let item = this.localMusic;
+                num = this.modelCollection.findIndex(function (x) {
+                    return x._id == item._id;
+                });
+            }
+            num = (num + 1) % this.modelCollection.length;
+            this.nowMusic = this.modelCollection[num];
+        },
+        prev() {
+            var num;
+            if (this.nowMusic._id) {
+                let item = this.nowMusic;
+                num = this.modelCollection.findIndex(function (x) {
+                    return x._id == item._id;
+                });
+            } else {
+                let item = this.localMusic;
+                num = this.modelCollection.findIndex(function (x) {
+                    return x._id == item._id;
+                });
+            }
+            num =
+                (num + this.modelCollection.length - 1) % this.modelCollection.length;
+            this.nowMusic = this.modelCollection[num];
+        },
+        search() {
+            if (this.input) {
+                this.$router.push(`/musics/search/${this.input}`);
+            }
+        },
+        getInput(data) {
+            this.input = data;
+        },
+    },
+    created() {
+        this.username = localStorage.getItem("username") || "";
+        this.localMusic = JSON.parse(localStorage.getItem("nowMusic")) || "";
+        this.fetchMyMusics();
+    },
 };
 </script>
