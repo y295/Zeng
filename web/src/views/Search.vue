@@ -9,25 +9,26 @@
         :header-cell-style="{background:'#fafafa'}"
         :row-style="{height:0+'px', background:'#fafafa'}"
         :cell-style="{padding:3+'px'}">
-          <el-table-column prop="music_name" label="音乐名" type="index" width="200">
-            <template slot-scope="scope">
-              <a @click="common.setNowMusic(scope.row)">{{scope.row.music_name}}</a>
-            </template>
-          </el-table-column>
-          <el-table-column
+        <el-table-column prop="music_name" label="音乐名" type="index" width="200">
+          <template slot-scope="scope">
+            <a @click="common.setNowMusic(scope.row)">{{scope.row.music_name}}</a>
+          </template>
+        </el-table-column>
+        <el-table-column
           prop="singers_list"
           label="歌手">
-            <template slot-scope="scope">
-              <li v-for="item in scope.row.singers_list" @click="common.singer(item._id)">{{item.singer_name}}</li>
-            </template>
-          </el-table-column>
-          <el-table-column
+          <template slot-scope="scope">
+            <li v-for="item in scope.row.singers_list" @click="common.singer(item._id)">{{item.singer_name}}</li>
+          </template>
+        </el-table-column>
+        <el-table-column
           prop="categories"
           label="类型">
-            <template slot-scope="scope">
-              <li v-for="item in scope.row.categories" @click="() => $router.push(`/musics/musicbook/${item._id}`)">{{item.title}}</li>
-            </template>
-          </el-table-column>
+          <template slot-scope="scope">
+            <li v-for="item in scope.row.categories" @click="() => $router.push(`/musics/musicbook/${item._id}`)">
+            {{item.title}}</li>
+          </template>
+        </el-table-column>
       </el-table>
     </div>
     <div class="block">
@@ -42,35 +43,35 @@
 </template>
 
 <style>
-  .search_wrap{
-   border: 0;
-   overflow: hidden;
-   clear: both;
-   background-color: #fafafa;
-   padding: 0;
-   margin: 0;
-   height: 100%;
+.search_wrap{
+  border: 0;
+  overflow: hidden;
+  clear: both;
+  background-color: #fafafa;
+  padding: 0;
+  margin: 0;
+  height: 100%;
 }
-  .title{
+.title{
   clear: both;
   font-size: 18px;
   color: #2a2a2a;
   margin-left: 10px;
 }
-  .music_list li{
-    float: left;
-    list-style: none;
-    margin-right: 10px;
+.music_list li{
+  float: left;
+  list-style: none;
+  margin-right: 10px;
 }
- .tag-current {
-    background-color: white;
+.tag-current {
+  background-color: white;
 
-  }
-  .block{
-    text-align: center;
-    margin: 15px 0;
-  }
-  .el-table{
+}
+.block{
+  text-align: center;
+  margin: 15px 0;
+}
+.el-table{
   margin-left: 10px;
   margin-right: 10px
 }
